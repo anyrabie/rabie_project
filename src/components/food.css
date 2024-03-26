@@ -1,0 +1,161 @@
+/* foodStyles.css */
+
+.max-w-1640px {
+    max-width: 1640px;
+  }
+  
+  .m-auto {
+    margin: auto;
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .text-orange-600 {
+    color: #ed8936;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  .justify-around {
+    justify-content: space-around;
+  }
+  
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .border-orange-600 {
+    border-color: #ed8936;
+  }
+  
+  .hover\:bg-orange-600:hover {
+    background-color: #ed8936;
+  }
+  
+  .hover\:text-white:hover {
+    color: #ffffff;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .w-[390px] {
+    width: 390px;
+  }
+  
+  .grid {
+    display: grid;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .gap-6 {
+    gap: 1.5rem;
+  }
+  
+  .pt-4 {
+    padding-top: 1rem;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .rounded-lg {
+    border-radius: 0.75rem;
+  }
+  
+  .rounded-t-lg {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  }
+  
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+  
+  .duration-300 {
+    transition-duration: 300ms;
+  }
+
+  .costum-button {
+    color: rgb(234 88 12);
+    background-color: white; 
+    padding: 8px 10px; 
+    margin: 10px; 
+    border: 2px solid orange; 
+    border-radius: 8px; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.costum-button:hover {
+    background-color: rgb(234 88 12); 
+    color: white; 
+}
+
+.costum-two {
+  background-color: #FFA500;
+  color: #FFFFFF;
+  padding: 0.25rem;
+  border-radius: 50%;
+}
+.addTo{
+
+  padding: 589px 10px;
+}
+
+
+  .lc {
+    color: orange; 
+    font-weight: bold; 
+  }
+  .ls{
+    color: black;
+    font-weight: bold;
+  }
+  
+
+
+  
