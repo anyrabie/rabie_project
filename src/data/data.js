@@ -90,7 +90,7 @@ export const data = [
     },
     {
       id: 11,
-      name: 'Loaded Salad',
+      name: 'Arabian Collection',
       category: 'salad',
       image:
         'https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2FsYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',

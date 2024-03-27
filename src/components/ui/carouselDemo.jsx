@@ -12,7 +12,7 @@ const images = [
 
 export function CarouselDemo() {
   return (
-    <div className="flex justify-center"> {/* Pour centrer horizontalement */}
+    <div className="flex justify-center"> 
       <Carousel className="w-full max-w-xs">
         <CarouselContent>
           {images.map(image => (
@@ -20,7 +20,7 @@ export function CarouselDemo() {
               <div className="p-1">
                 <Card>
                   <CardContent className="flex aspect-square items-center justify-center p-6">
-                    {/* Utilisez les styles pour remplir l'espace avec l'image */}
+                    
                     <img src={image.src} alt={image.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </CardContent>
                 </Card>

@@ -8,10 +8,6 @@ import Help from './views/help'
 import About from './views/about'
 import Promo from './views/promo'
 
-
-
-
-
 function App() {
   return (
     <div className='3abalk'>

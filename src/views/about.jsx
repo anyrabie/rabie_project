@@ -59,7 +59,7 @@ const About = () => {
             <TableCell>Algerian cuisine</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="font-medium">Chef Antony</TableCell>
+            <TableCell className="font-medium">Chef Antony Manu</TableCell>
             <TableCell>Brazillian cuisine</TableCell>
             
           </TableRow>
