@@ -17,6 +17,47 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from './ui/input';
+import { TypographyH1 } from './ui/typographyH1';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGift } from '@fortawesome/free-solid-svg-icons';
+
+export function InputWithButton() {
+  return (
+    <div className="flex w-full max-w-sm items-center space-x-2" >
+      <AiFillTag size={25} className='mr-4' /> 
+      <Input type="text" placeholder="Promo Code"></Input>
+      <Button type="submit">Apply</Button>
+
+    </div>
+  );
+}
+
+export function DialogDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline"><AiFillTag size ={25}className='mr-4' /> </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Get Promotions</DialogTitle>
+        </DialogHeader>
+          <div>
+            <InputWithButton/>
+          </div>
+      </DialogContent>
+    </Dialog>
+  )
+}
 
 
 const Navbar = () => {
@@ -97,9 +138,10 @@ const [nav, setNav] = useState(false)
         </div>
         <nav>
             <ul className='flex flex-col p-4 text-gray-800'>
-                <li className='text-xl py-4 flex'><Link to='/about'><Button><TbTruckDelivery size={25} className='mr-4' /> </Button></Link></li>
-                <li className='text-xl py-4 flex'><Link to='/help'><Button><MdHelp size={25} className='mr-4' /> </Button></Link></li>
-                <li className='text-xl py-4 flex'><Link to='/promo'><Button><AiFillTag size={25} className='mr-4' /> </Button></Link></li>
+                <li className='text-xl py-4 flex'><Link to='/about'><Button variant="outline"><TbTruckDelivery size={25} className='mr-4' /> </Button></Link></li>
+                <li className='text-xl py-4 flex'><Link to='/help'><Button variant="outline"><MdHelp size={25} className='mr-4' /> </Button></Link></li>
+                <li className='text-xl py-4 flex'><DialogDemo/></li>
+                <li className='text-xl py-4 flex'><Button variant="outline"><FontAwesomeIcon  icon={faGift} /></Button></li>
                 
             </ul>
         </nav>

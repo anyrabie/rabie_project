@@ -6,7 +6,7 @@ import Food from './components/Food'
 import { Routes, Route } from 'react-router-dom'
 import Help from './views/help'
 import About from './views/about'
-import Promo from './views/promo'
+
 
 function App() {
   return (
@@ -24,7 +24,6 @@ function App() {
         {/* Route pour la page About */}
         <Route path="/about" element={<About />} />
         {/* Ajoutez d'autres routes ici */}
-        <Route path="/promo" element={<Promo/>} />
         
         {/* Route pour la page Help */}
         
