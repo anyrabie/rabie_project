@@ -9,6 +9,14 @@ import { Link } from 'react-router-dom';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import './navbar.css';
 import { HoverCardDemo } from './ui/bal';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 
 const Navbar = () => {
@@ -45,8 +53,23 @@ const [nav, setNav] = useState(false)
       </div>
       {/* Cart button */}
       
-        <Button className='k'><BsFillCartFill size={20} className='mr-2' /> Cart</Button>
-      
+        
+        <Sheet>
+          <SheetTrigger><Button className='k'><BsFillCartFill size={20} className='mr-2' /> Cart</Button></SheetTrigger>
+          <SheetContent>
+          <SheetHeader>
+          <SheetTitle className='ka'><img src="https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843_1280.png" alt="Panel One" style={{ width: '50%', height: '50%' }}/></SheetTitle>
+         
+         <SheetTitle className='center'>Add items to start a cart</SheetTitle>
+          <SheetDescription>
+          Once you add items from a restaurant or store, your cart will appear here.
+         </SheetDescription>
+         </SheetHeader>
+         <SheetTitle className='center-justified'><Button className='k'>Get Start</Button></SheetTitle>
+         </SheetContent>
+         
+        </Sheet>
+
 
       {/* Mobile Menu */}
       {/* Overlay */}

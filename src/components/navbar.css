@@ -53,15 +53,15 @@
     display: none;
   }
   
-  .w-[200px] {
+  .w- {
     width: 200px;
   }
   
-  .sm\:w-[400px] {
+  .sm\:w- {
     width: 400px;
   }
   
-  .lg\:w-[500px] {
+  .lg\:w- {
     width: 500px;
   }
   
@@ -69,7 +69,7 @@
     background-color: #000000;
   }
   
-  .bg-black/80 {
+  .bg-black80 {
     background-color: rgba(0, 0, 0, 0.8); /* Change la transparence du fond noir */
   }
   
@@ -197,7 +197,7 @@
     margin-top: 0.5rem; 
     color: orange; 
     margin-left: 2.2rem;
-    weight-font: bold;
+    font-weight: bold;  
 }
 
 
@@ -237,7 +237,7 @@
     font-size: 0.7rem; 
     margin-top: 0.5rem; 
     margin-left: 2.2rem;
-    weight-font: bold;
+    font-weight: bold; 
   }
   
   
@@ -259,5 +259,22 @@
     background: #F6C273;
   }
 
+  .ka{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  } 
 
-  
+  .center-justified {
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 20px;
+}
+  .center{
+
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 50px;
+  }
