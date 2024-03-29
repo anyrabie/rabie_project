@@ -1,9 +1,41 @@
-.wah {
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.welcome-section {
+  text-align: center;
+}
+
+.image-gallery {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.mission-section,
+.chef-section,
+.menu-section,
+.locally-sourced-section,
+.visit-us-section,
+.social-media-section {
+  margin-top: 50px;
+}
+
+.chef-table {
+  width: 100%;
+}
+
+.chef-table th {
   font-weight: bold;
-  color: #000000;
-  font-size: 24px; /* Increase font size */
-  text-transform: uppercase; /* Uppercase text */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
-  letter-spacing: 1px; /* Adjust letter spacing */
-  margin-bottom: 20px; /* Add some spacing at the bottom */
+}
+
+.button-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.button-link:hover {
+  text-decoration: underline;
 }

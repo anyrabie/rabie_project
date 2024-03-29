@@ -70,9 +70,7 @@ const [nav, setNav] = useState(false)
         <div onClick={()=> setNav(!nav)} className='cursor-pointer'>
           <AiOutlineMenu size={30} />
         </div>
-        
-        <h1 className='text-2xl sm:text-3xl lg:text-4xl px-2'>
-      
+        <h1 className='text-2xl scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight mt-2 px-2'>
         <span className="orange" style={{ color: 'orange' }}>R</span>
          <span>E</span>
         <span>S</span>
@@ -126,7 +124,7 @@ const [nav, setNav] = useState(false)
         />
         <div className="flex items-center">
           <Link to="/" className="mr-4">
-            <h2 className="text-2xl p-4">
+            <h2 className="text-2xl p-4 'text-2xl scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 px-2'">
               <span className="orange" style={{ color: 'orange' }}>R</span>
               <span>E</span>
               <span>S</span>
@@ -141,7 +139,7 @@ const [nav, setNav] = useState(false)
                 <li className='text-xl py-4 flex'><Link to='/about'><Button variant="outline"><TbTruckDelivery size={25} className='mr-4' /> </Button></Link></li>
                 <li className='text-xl py-4 flex'><Link to='/help'><Button variant="outline"><MdHelp size={25} className='mr-4' /> </Button></Link></li>
                 <li className='text-xl py-4 flex'><DialogDemo/></li>
-                <li className='text-xl py-4 flex'><Button variant="outline"><FontAwesomeIcon  icon={faGift} /></Button></li>
+                
                 
             </ul>
         </nav>
