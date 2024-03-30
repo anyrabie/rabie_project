@@ -34,9 +34,6 @@ const About = () => {
   </ResizablePanel>
 </ResizablePanelGroup>
 
-
-
-
       <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Our Mission:</h2>
       <p className="leading-7 [&:not(:first-child)]:mt-6">Our mission is to ... We aim to create memorable dining experiences for every guest who walks through our doors.</p>
       
@@ -66,17 +63,17 @@ const About = () => {
         </TableBody>
       </Table>
       
-      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Our Menu:</h2>
-      <p className="leading-7 [&:not(:first-child)]:mt-6">Explore our diverse menu featuring a variety of defrent cuisine dishes made with fresh, locally sourced ingredients. From appetizers to desserts, we offer something for everyone to enjoy.</p>
+      <h2 className='text-2xl scroll-m-20 pb-2 text-3xl font-semibold tracking-tight mt-2 px-2'>Our Menu:</h2>
+      <p className="wah">Explore our diverse menu featuring a variety of defrent cuisine dishes made with fresh, locally sourced ingredients. From appetizers to desserts, we offer something for everyone to enjoy.</p>
       
-      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Locally Sourced:</h2>
-      <p className="leading-7 [&:not(:first-child)]:mt-6">We are committed to supporting local farmers and producers by sourcing ingredients from nearby farms and suppliers. This allows us to offer the freshest, highest quality ingredients in our dishes.</p>
+      <h2 className='text-2xl scroll-m-20 pb-2 text-3xl font-semibold tracking-tight mt-2 px-2'>Locally Sourced:</h2>
+      <p className="wah">We are committed to supporting local farmers and producers by sourcing ingredients from nearby farms and suppliers. This allows us to offer the freshest, highest quality ingredients in our dishes.</p>
       
-      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Visit Us</h2>
-      <p className="leading-7 [&:not(:first-child)]:mt-6">We invite you to dine with us and experience the flavors of RESTO. <Link to="/" ><Button variant="link" >Visit us</Button></Link> and enjoy a delicious meal in a warm and welcoming atmosphere.</p>
+      <h2 className='text-2xl scroll-m-20 pb-2 text-3xl font-semibold tracking-tight mt-2 px-2'>Visit Us</h2>
+      <p className="wah">We invite you to dine with us and experience the flavors of RESTO. <Link to="/" ><Button variant="link" >Visit us</Button></Link> and enjoy a delicious meal in a warm and welcoming atmosphere.</p>
       
-      <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Follow Us!</h2>
-      <p className="leading-7 [&:not(:first-child)]:mt-6"><Link to="/help" ><Button variant="link" >Stay connected</Button></Link> with us on social media for the latest updates, special offers, and behind-the-scenes glimpses into our kitchen:</p>
+      <h2 className='text-2xl scroll-m-20 pb-2 text-3xl font-semibold tracking-tight mt-2 px-2'>Follow Us!</h2>
+      <p className="wah"><Link to="/help" ><Button variant="link" >Stay connected</Button></Link> with us on social media for the latest updates, special offers, and behind-the-scenes glimpses into our kitchen:</p>
       
     </div>
   );

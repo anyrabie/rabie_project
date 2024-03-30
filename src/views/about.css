@@ -1,41 +1,7 @@
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+.wah {
+  line-height: 1.75; 
 }
 
-.welcome-section {
-  text-align: center;
-}
-
-.image-gallery {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.mission-section,
-.chef-section,
-.menu-section,
-.locally-sourced-section,
-.visit-us-section,
-.social-media-section {
-  margin-top: 50px;
-}
-
-.chef-table {
-  width: 100%;
-}
-
-.chef-table th {
-  font-weight: bold;
-}
-
-.button-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.button-link:hover {
-  text-decoration: underline;
+.wah:not(:first-child) {
+  margin-top: 1.5rem;
 }
