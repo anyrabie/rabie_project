@@ -3,14 +3,10 @@ import { data } from '../data/data.js';
 import './food.css'
 import { Button } from './ui/button.jsx';
 import { Textarea } from "@/components/ui/textarea"
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
 import { BsFillCartFill} from 'react-icons/bs';
 import { FaHeart } from 'react-icons/fa';
-import { HoverCardDemo } from './ui/bal.jsx';
+
+
 
 export function TextareaWithButton() {
   return (
@@ -31,6 +27,16 @@ const Food = () => {
       }
       return item;
     }));
+  };
+  const addToCart = (id) => {
+    setFoods(
+      foods.map((item) => {
+        if (item.id === id) {
+          return { ...item, isAdded: true }; 
+        }
+        return item;
+      })
+    );
   };
 
   const filterType = (category) => {
@@ -147,10 +153,11 @@ const Food = () => {
                   {item.price}
                 </span>
               </p>
-              <Button className='.addTo'>
-              <BsFillCartFill size={20} className='mr-2' />
-                              </Button> 
-                              <FaHeart 
+              <Button onClick={() => handleAddToCart(item.id)}>
+                <BsFillCartFill size={20} className='mr-2' />
+              </Button> 
+
+              <FaHeart 
                 color={item.isFavorite ? "red" : "black"} 
                 size={24} 
                 onClick={() => toggleFavorite(item.id)} 
@@ -161,7 +168,6 @@ const Food = () => {
       </div>
       <h2 className='lc'> Leave a comment:</h2>
       <TextareaWithButton />
-
     </div>
   );
 };

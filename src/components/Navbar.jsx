@@ -60,9 +60,13 @@ export function DialogDemo() {
 }
 
 
-const Navbar = () => {
+const Navbar = ({ addToCart }) => {
+const [cartCount, setCartCount] = useState(0);
 const [nav, setNav] = useState(false)
-
+const handleAddToCart = (id) => {
+  addToCart(id); 
+  setCartCount(cartCount + 1); 
+};
   return (
     <div className='navbar max-w-[1640px] mx-auto flex justify-between items-center p-4'>
       {/* Left side */}
@@ -94,7 +98,7 @@ const [nav, setNav] = useState(false)
       
         
         <Sheet>
-          <SheetTrigger><Button className='k'><BsFillCartFill size={20} className='mr-2' /> Cart</Button></SheetTrigger>
+          <SheetTrigger><Button className='k' onClick={handleAddToCart}><BsFillCartFill size={20} className='mr-2' /> ({cartCount})</Button></SheetTrigger>
           <SheetContent>
           <SheetHeader>
           <SheetTitle className='ka'><img src="https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843_1280.png" alt="Panel One" style={{ width: '50%', height: '50%' }}/></SheetTitle>
