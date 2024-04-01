@@ -6,13 +6,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { BsFillCartFill} from 'react-icons/bs';
 import { FaHeart } from 'react-icons/fa';
 
-
-
 export function TextareaWithButton() {
   return (
     <div className="grid w-full gap-2">
       <Textarea placeholder="Type your message here." />
-      <Button>Send message</Button>
+      <Button>Send messageù</Button>
     </div>
   )
 }
@@ -28,17 +26,7 @@ const Food = () => {
       return item;
     }));
   };
-  const addToCart = (id) => {
-    setFoods(
-      foods.map((item) => {
-        if (item.id === id) {
-          return { ...item, isAdded: true }; 
-        }
-        return item;
-      })
-    );
-  };
-
+ 
   const filterType = (category) => {
     setFoods(
       data.filter((item) => {
@@ -153,10 +141,9 @@ const Food = () => {
                   {item.price}
                 </span>
               </p>
-              <Button onClick={() => handleAddToCart(item.id)}>
-                <BsFillCartFill size={20} className='mr-2' />
-              </Button> 
-
+              <Button>
+                <BsFillCartFill size={20} className='mr-1' />
+              </Button>
               <FaHeart 
                 color={item.isFavorite ? "red" : "black"} 
                 size={24} 

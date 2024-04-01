@@ -6,7 +6,6 @@ import {FaUserFriends, FaWallet} from 'react-icons/fa'
 import {MdFavorite, MdHelp} from 'react-icons/md'
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import './navbar.css';
 import { HoverCardDemo } from './ui/bal';
 import {
@@ -26,9 +25,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from './ui/input';
-import { TypographyH1 } from './ui/typographyH1';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGift } from '@fortawesome/free-solid-svg-icons';
 
 export function InputWithButton() {
   return (
@@ -98,7 +94,7 @@ const handleAddToCart = (id) => {
       
         
         <Sheet>
-          <SheetTrigger><Button className='k' onClick={handleAddToCart}><BsFillCartFill size={20} className='mr-2' /> ({cartCount})</Button></SheetTrigger>
+          <SheetTrigger><Button className='k' onClick={handleAddToCart}><BsFillCartFill size={20} className='mr-2'/> ({cartCount})</Button></SheetTrigger>
           <SheetContent>
           <SheetHeader>
           <SheetTitle className='ka'><img src="https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843_1280.png" alt="Panel One" style={{ width: '50%', height: '50%' }}/></SheetTitle>
@@ -108,7 +104,7 @@ const handleAddToCart = (id) => {
           Once you add items from a restaurant or store, your cart will appear here.
          </SheetDescription>
          </SheetHeader>
-         <SheetTitle className='center-justified'><Button className='k'>Get Start</Button></SheetTitle>
+         <SheetTitle className='center-justified'><Link to="/"><Button className='k'>Get Start</Button></Link></SheetTitle>
          </SheetContent>
          
         </Sheet>

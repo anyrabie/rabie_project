@@ -6,6 +6,7 @@ import Food from './components/Food'
 import { Routes, Route } from 'react-router-dom'
 import Help from './views/help'
 import About from './views/about'
+import NotFound from './views/NotFound'
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
         {/* Route pour la page Help */}
         
         <Route path="/help" element={<Help />} />
+        {/* Route pour la page Not Found */}
+        <Route path="*" element={<NotFound />} /> {/* Placez cette ligne à la fin */}
       </Routes>
     </div>
   );
