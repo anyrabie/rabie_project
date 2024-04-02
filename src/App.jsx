@@ -7,10 +7,12 @@ import { Routes, Route } from 'react-router-dom'
 import Help from './views/help'
 import About from './views/about'
 import NotFound from './views/NotFound'
+import { CartProvider } from 'react-use-cart'
 
 
 function App() {
   return (
+    <CartProvider>
     <div className='3abalk'>
       {/* Navbar affichée sur toutes les routes */}
       <Navbar />
@@ -33,6 +35,7 @@ function App() {
         <Route path="*" element={<NotFound />} /> {/* Placez cette ligne à la fin */}
       </Routes>
     </div>
+    </CartProvider>
   );
 }
 

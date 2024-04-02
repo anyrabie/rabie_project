@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/resizable"
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import './about.css';
 
 const About = () => {
   return (

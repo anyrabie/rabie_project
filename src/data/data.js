@@ -155,7 +155,7 @@ export const data = [
       category: 'traditionnel',
       image:
         'https://images.pexels.com/photos/6947606/pexels-photo-6947606.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      price: '$$$',
+      price: '500DA',
       isFavorite: false,
       isAdded: false,
     },
