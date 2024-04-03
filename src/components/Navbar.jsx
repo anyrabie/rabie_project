@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { AiOutlineMenu, AiOutlineSearch, AiOutlineClose, AiFillTag } from 'react-icons/ai';
-import { BsFillCartFill,BsFillSaveFill } from 'react-icons/bs';
 import {TbTruckDelivery} from 'react-icons/tb'
 import {FaUserFriends, FaWallet} from 'react-icons/fa'
 import {MdFavorite, MdHelp} from 'react-icons/md'
@@ -8,14 +7,6 @@ import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import { HoverCardDemo } from './ui/bal';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 import {
   Dialog,
   DialogContent,
@@ -25,6 +16,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from './ui/input';
+import { Cart } from './Cart';
 
 export function InputWithButton() {
   return (
@@ -56,13 +48,9 @@ export function DialogDemo() {
 }
 
 
-const Navbar = ({ addToCart }) => {
-const [cartCount, setCartCount] = useState(0);
+const Navbar = () => {
 const [nav, setNav] = useState(false)
-const handleAddToCart = (id) => {
-  addToCart(id); 
-  setCartCount(cartCount + 1); 
-};
+
   return (
     <div className='navbar max-w-[1640px] mx-auto flex justify-between items-center p-4'>
       {/* Left side */}
@@ -91,25 +79,7 @@ const handleAddToCart = (id) => {
         />
       </div>
       {/* Cart button */}
-      
-        
-        <Sheet>
-          <SheetTrigger><Button className='k' onClick={handleAddToCart}><BsFillCartFill size={20} className='mr-2'/> ({cartCount})</Button></SheetTrigger>
-          <SheetContent>
-          <SheetHeader>
-          <SheetTitle className='ka'><img src="https://cdn.pixabay.com/photo/2014/04/02/10/53/shopping-cart-304843_1280.png" alt="Panel One" style={{ width: '50%', height: '50%' }}/></SheetTitle>
-         
-         <SheetTitle className='center'>Add items to start a cart</SheetTitle>
-          <SheetDescription>
-          Once you add items from a restaurant or store, your cart will appear here.
-         </SheetDescription>
-         </SheetHeader>
-         <SheetTitle className='center-justified'><Link to="/"><Button className='k'>Get Start</Button></Link></SheetTitle>
-         </SheetContent>
-         
-        </Sheet>
-
-
+      <Cart/>
       {/* Mobile Menu */}
       {/* Overlay */}
       {nav ? <div className='bg-black/80 fixed w-full h-screen z-10 top-0 left-0'></div> : ''}
