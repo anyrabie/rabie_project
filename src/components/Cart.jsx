@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { TypographyH1 } from './ui/typographyH1.jsx';
 
 export function Cart() {
   const {
@@ -45,26 +46,45 @@ export function Cart() {
     );
   }
   
+  if (items.length > 6) {
+    return (
+      <div>          
+        <Sheet>
+        <SheetTrigger><Button className='k'><BsFillCartFill  size={20} className='mr-2'/>{totalUniqueItems} </Button></SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+            <SheetTitle className='ka'><img src="https://cdn.pixabay.com/photo/2019/03/12/07/00/clumsy-4050065_960_720.png" alt="Panel One" style={{ width: '80%', height: '50%' }}/></SheetTitle>
+              <SheetTitle className='center'>The number of items exceeds 6</SheetTitle>
+              <SheetDescription>
+              Your articles has been reserved, please don't worry.
+              </SheetDescription>
+              <SheetTitle className='center-justified'><Link to="/viewAll"><Button>Go Check</Button></Link></SheetTitle>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </div>
+    );
+  }
 
   return (
     <>
     <Sheet>
-  <SheetTrigger>
-    <Button className='k'>
-      <BsFillCartFill  size={20} className='mr-2'/>
-      {totalUniqueItems}
-    </Button>
-  </SheetTrigger>
-  <SheetContent>
-    <table className="cart-table">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th style={{ paddingRight: '10px' }}>Plat    </th>
-          <th>Prix</th>
-          <th>Quantité</th>
-          <th>Actions</th>
-        </tr>
+      <SheetTrigger>
+        <Button className='k'>
+         <BsFillCartFill  size={20} className='mr-2'/>
+           {totalUniqueItems}
+       </Button>
+      </SheetTrigger>
+    <SheetContent>
+      <table className="cart-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th style={{ paddingRight: '7px' }}>Plat    </th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Actions</th>
+          </tr>
       </thead>
       <tbody>
         {items.map((item) => (
@@ -88,9 +108,8 @@ export function Cart() {
     </table>
     <h2>Total Prices :{cartTotal} Da</h2>
     <h2>Total Items :{totalItems}</h2>
-  </SheetContent>
-</Sheet>
-
+    </SheetContent>
+    </Sheet>
     </>
   );
 }

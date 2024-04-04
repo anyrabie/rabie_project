@@ -30,7 +30,7 @@
   
   .cart-table th,
   .cart-table td {
-    padding: 8px;
+    padding: 6px;
     border-bottom: 1px solid #ddd;
     text-align: left;
   }
@@ -63,4 +63,10 @@
     transform: scale(0.95);
   }
   
+  .center{
+
+    justify-content: center;
+    display: flex;
+    
+  }
   

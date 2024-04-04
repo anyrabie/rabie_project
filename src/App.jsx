@@ -8,6 +8,7 @@ import Help from './views/help'
 import About from './views/about'
 import NotFound from './views/NotFound'
 import { CartProvider } from 'react-use-cart'
+import { ViewItem } from './views/ViewItem'
 
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
         
         <Route path="/help" element={<Help />} />
         {/* Route pour la page Not Found */}
-        <Route path="*" element={<NotFound />} /> {/* Placez cette ligne à la fin */}
+        <Route path="*" element={<NotFound />} />
+        <Route path="/viewAll" element={<ViewItem />} /> {/* Placez cette ligne à la fin */}
       </Routes>
     </div>
     </CartProvider>

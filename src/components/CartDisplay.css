@@ -1,0 +1,24 @@
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding-right: 10px;
+  }
+  
+  .title-text {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+  
+  .price {
+    color: rgb(10, 10, 10);
+    font-size: 1.2em;
+  }
+  
+  .quantity {
+    color: rgba(15, 15, 15, 0.993);
+    font-size: 1.2em;
+  }
+  
