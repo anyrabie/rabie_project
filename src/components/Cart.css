@@ -69,4 +69,33 @@
     display: flex;
     
   }
+  .favorite-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  .FaHeartIcon {
+    position: relative;
+    top: -30px;
+    border-radius: 50%;
+    
+}
+.FaHeartIcon :hover {
+  border-color: red;
+  color: red;
+  cursor: pointer;
+}
+.bold-text {
+  margin-left: 65px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+.bold-text-rabie {
+  margin-left: 100px;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
   

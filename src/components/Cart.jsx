@@ -13,7 +13,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { TypographyH1 } from './ui/typographyH1.jsx';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import CartItemDialog from './CartItemDia.jsx';
+
 
 export function Cart() {
   const {
@@ -80,7 +89,7 @@ export function Cart() {
         <thead>
           <tr>
             <th>Image</th>
-            <th style={{ paddingRight: '7px' }}>Plat    </th>
+            <th style={{ paddingRight: '10px' }}>Plat    </th>
             <th>Prix</th>
             <th>Quantité</th>
             <th>Actions</th>
@@ -106,29 +115,46 @@ export function Cart() {
         ))}
       </tbody>
     </table>
-    <h2>Total Prices :{cartTotal} Da</h2>
-    <h2>Total Items :{totalItems}</h2>
+    <h2 className='bold-text'>Total Prices :{cartTotal} Da</h2>
+    <h2 className='bold-text-rabie'>Total Items :{totalItems}</h2>
     </SheetContent>
     </Sheet>
     </>
   );
 }
-function CartSh({ foods, toggleFavorite })
- {
+function CartSh({ foods, toggleFavorite }) {
   const { addItem } = useCart();
-  
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [ setIsDialogOpen] = useState(false);
+
+  const handleClick = (item) => {
+    setSelectedItem(item);
+    setIsDialogOpen(true); 
+  };
+
   return (
     <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
+      <Dialog>
+        
       {foods.map((item, index) => (
         <div
           key={index}
           className='border shadow-lg rounded-lg hover:scale-105 duration-300'
+          onClick={() => handleClick(item)}
         >
-          <img
-            src={item.image}
-            alt={item.name}
-            className='w-full h-[200px] object-cover rounded-t-lg'
-          />
+          <div className="image-container">
+            <img
+              src={item.image}
+              alt={item.name}
+              className='w-full h-[200px] object-cover rounded-t-lg'
+            />
+             <FaHeart className='FaHeartIcon'
+              color={item.isFavorite ? "red" : "#D1C8C8"}
+              size={24}
+              onClick={() => toggleFavorite(item.id)}
+            />
+          </div>
+        <DialogTrigger><Button variant="link">view more</Button></DialogTrigger>
           <div className='flex justify-between px-2 py-4'>
             <p className='font-bold'>{item.name}</p>
             <p>
@@ -136,18 +162,21 @@ function CartSh({ foods, toggleFavorite })
                 {item.price} Da
               </span>
             </p>
-            <Button  onClick={() => addItem(item)}>
-              <BsFillCartFill size={20} className='mr-1'  />
+            <Button onClick={() => addItem(item)}>
+              <BsFillCartFill size={20} className='mr-1' />
             </Button>
-            <FaHeart 
-              color={item.isFavorite ? "red" : "black"} 
-              size={24} 
-              onClick={() => toggleFavorite(item.id)} 
-            />               
+            
+            
           </div>
           
         </div>
+        
       ))}
+          <DialogContent>
+        <CartItemDialog selectedItem={selectedItem} addItem={addItem} /></DialogContent>
+        </Dialog>
+      
+      
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { data } from '../data/data.js';
 import './food.css'
 import { Button } from './ui/button.jsx';
 import { Textarea } from "@/components/ui/textarea"
-import Cart from './Cart';
 import CartSh from './Cart';
 
 export function TextareaWithButton() {
@@ -95,25 +94,25 @@ const Food = () => {
           <p className='font-bold text-gray-700'>Filter Price</p>
           <div className='flex justify-between max-w-[390px] w-full'>
             <button
-              onClick={() => filterPrice('100DA')}
+              onClick={() => filterPrice('100')}
               className='costum-button'
             >
               100DA
             </button>
             <button
-              onClick={() => filterPrice('200DA')}
+              onClick={() => filterPrice('200')}
               className='costum-button'
             >
               200DA
             </button>
             <button
-              onClick={() => filterPrice('500DA')}
+              onClick={() => filterPrice('500')}
               className='costum-button'
             >
               500DA
             </button>
             <button
-              onClick={() => filterPrice('1000DA')}
+              onClick={() => filterPrice('1000')}
               className='costum-button'
             >
               1000DA
