@@ -1,24 +1,134 @@
+
+.card-list2 {
+  list-style-type: none;
+  padding: 12px;
+}
+
+.card-item2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-radius: 8px; 
+  border: 1px solid #ddd; 
+  padding: 50px;
+  width: 80%; 
+}
+
+.itemd-details {
+  display: flex;
+  align-items: center;
+}
+
+.itemd-image {
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.buttond-container2 button {
+  border: none;
+  background-color: orange;
+  cursor: pointer;
+  padding: 8px; 
+  margin-right: 5px;
+}
+
+.buttond-container2 button:hover {
+  background-color: #ff9f00;
+}
+
+/* Styles pour le titre et les totaux */
 .title-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 0;
-    padding-right: 10px;
-  }
-  
-  .title-text {
-    font-weight: bold;
-    margin-right: 10px;
-    font-size: 1.2em;
-  }
-  
-  .price {
-    color: rgb(10, 10, 10);
-    font-size: 1.2em;
-  }
-  
-  .quantity {
-    color: rgba(15, 15, 15, 0.993);
-    font-size: 1.2em;
-  }
-  
+  display: flex;
+  background-color: #ff9f00;
+  justify-content: space-between;
+  margin-top: 10px;
+
+}
+
+.title-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+
+}
+.title2-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.price,
+.quantity {
+  font-weight: bold;
+}
+
+/* Styles pour la boîte de dialogue */
+.notes {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add-notes-text {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.add-notes-icon {
+  font-size: 24px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.invoice {
+  /* Styles pour le conteneur de la facture */
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.invoice-title {
+  /* Styles pour le titre de la facture */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.invoice-details {
+  /* Styles pour les détails de la facture */
+  margin-bottom: 20px;
+}
+
+.invoice-items {
+  /* Styles pour la table des articles de la facture */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-items th,
+.invoice-items td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.invoice-items th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.print-button {
+  /* Styles pour le bouton d'impression */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #0056b3;
+}

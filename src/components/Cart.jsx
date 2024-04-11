@@ -16,12 +16,43 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import CartItemDialog from './CartItemDia.jsx';
+import { IoIosAddCircle,IoIosRemoveCircle, IoMdCloseCircle,} from 'react-icons/io';
+import { toast } from "sonner"
+
+export function SonnerDemo({ addItem ,item}) {
+
+  const handleShowToast = () => {
+    const currentTime = new Date(); 
+    toast("Your item has been added", {
+      description: `Added on ${currentTime.toLocaleString()}`,
+      action: {
+        label: "Undo",
+        onClick: () => {
+          toast.dismiss(toast);
+        },
+      },
+    });
+    addItem(item);
+  };
+  return (
+    <Button  onClick={handleShowToast}>
+      <BsFillCartFill size={20} className='mr-1' />
+    </Button>
+  );
+}
+export function TextareaWithButton() {
+  return (
+    <div className="grid w-full gap-2">
+      <Textarea placeholder="Feel free and type your notes here." />
+      <Button> Send notes</Button>
+    </div>
+  )
+}
+
+
 
 
 export function Cart() {
@@ -37,7 +68,7 @@ export function Cart() {
 
   if (isEmpty) {
     return (
-      <div>          
+      <div>    
         <Sheet>
         <SheetTrigger><Button className='k'><BsFillCartFill  size={20} className='mr-2'/>{totalUniqueItems} </Button></SheetTrigger>
           <SheetContent>
@@ -55,7 +86,7 @@ export function Cart() {
     );
   }
   
-  if (items.length > 6) {
+  if (items.length >=6) {
     return (
       <div>          
         <Sheet>
@@ -77,48 +108,43 @@ export function Cart() {
 
   return (
     <>
-    <Sheet>
-      <SheetTrigger>
-        <Button className='k'>
-         <BsFillCartFill  size={20} className='mr-2'/>
-           {totalUniqueItems}
-       </Button>
-      </SheetTrigger>
-    <SheetContent>
-      <table className="cart-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th style={{ paddingRight: '10px' }}>Plat    </th>
-            <th>Prix</th>
-            <th>Quantité</th>
-            <th>Actions</th>
-          </tr>
-      </thead>
-      <tbody>
-        {items.map((item) => (
-          <tr key={item.id}>
-            <td>
-              <img src={item.image} alt={item.name} className="item-image" />
-            </td>
-            <td>{item.name}</td>
-            <td>{item.price}</td>
-            <td>{item.quantity}</td>
-            <td>
-              <div className="button-container">
-                <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}>-</button>
-                <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}>+</button>
-                <button onClick={() => removeItem(item.id)}>&times;</button>
-              </div>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-    <h2 className='bold-text'>Total Prices :{cartTotal} Da</h2>
-    <h2 className='bold-text-rabie'>Total Items :{totalItems}</h2>
-    </SheetContent>
-    </Sheet>
+    <Sheet className="sheet">
+  <SheetTrigger>
+    <Button className='k'>
+      <BsFillCartFill size={20} className='mr-2' />
+      {totalUniqueItems}
+    </Button>
+  </SheetTrigger>
+  <SheetContent>
+    <ul className="cart-list">
+      {items.map((item) => (
+        <li key={item.id} className="cart-item">
+          <div className="item-details">
+            <img src={item.image} alt={item.name} className="item-image" />
+            <div>
+              <h3>{item.name}</h3>
+              <p>Prix: {item.price} DA</p>
+              <p>Quantité: {item.quantity}</p>
+            </div>
+          </div>
+          <div className="button-container">
+            <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}><IoIosRemoveCircle/></button>
+            <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}><IoIosAddCircle/></button>
+            <button onClick={() => removeItem(item.id)}><IoMdCloseCircle/></button>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <div className="totals-container">
+      <h2 className='bold-text'>Total Prices : {cartTotal} Da</h2>
+      <h2 className='bold-text-rabie'>Total Items : {totalItems}</h2>
+      <div className='center-justified'>
+        <Link to="/viewAll"><Button>Go Check</Button></Link>
+      </div>
+    </div>
+  </SheetContent>
+</Sheet>
+
     </>
   );
 }
@@ -129,7 +155,6 @@ function CartSh({ foods, toggleFavorite }) {
 
   const handleClick = (item) => {
     setSelectedItem(item);
-    setIsDialogOpen(true); 
   };
 
   return (
@@ -162,9 +187,7 @@ function CartSh({ foods, toggleFavorite }) {
                 {item.price} Da
               </span>
             </p>
-            <Button onClick={() => addItem(item)}>
-              <BsFillCartFill size={20} className='mr-1' />
-            </Button>
+            <SonnerDemo addItem={addItem} item={item} />
             
             
           </div>

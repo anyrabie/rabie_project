@@ -1,4 +1,3 @@
-
 import CartDisplay from '@/components/CartDisplay'
 import React from 'react'
 
