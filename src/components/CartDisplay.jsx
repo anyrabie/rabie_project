@@ -1,64 +1,30 @@
-import React, { useRef } from 'react';
-import { useCart } from 'react-use-cart';
-import { IoIosAddCircle, IoIosRemoveCircle, IoMdAdd, IoMdCloseCircle, IoMdPrint, IoMdRemove } from 'react-icons/io';
-import './CartDisplay.css'
-import IsEmpty from './IsEmpty';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { TypographyH1 } from './ui/typographyH1';
-import { useReactToPrint } from 'react-to-print';
-import Invoice from './Invoice';
-
-export const AnotherExample = ({ items, cartTotal, totalItems }) => {
-  const contentToPrint = useRef(null);
-  const handlePrint = useReactToPrint({
-    documentTitle: "Print This Document",
-    onBeforePrint: () => console.log("before printing..."),
-    onAfterPrint: () => console.log("after printing..."),
-    removeAfterPrint: true,
-  });
-
-  return (
-    <>
-      <div ref={contentToPrint}>
-        <div className="invoice">
-          <h1>Facture</h1>
-          <div className="invoice-details">
-            <p>Date: {new Date().toLocaleDateString()}</p>
-            <p>Total Items: {totalItems}</p>
-            <p>Total Price: {cartTotal} Da</p>
-          </div>
-          <table className="invoice-items">
-            <thead>
-              <tr>
-                <th>Item Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>{item.quantity}</td>
-                  <td>{item.price}</td>
-                  <td>{item.quantity * item.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <button onClick={() => {
-        handlePrint(null, () => contentToPrint.current);
-      }}>
-        <IoMdPrint/>
-      </button>
-    </>
-  );
-}
+import React, { useRef } from "react";
+import { useCart } from "react-use-cart";
+import {
+  IoIosAddCircle,
+  IoIosDownload,
+  IoIosRemoveCircle,
+  IoMdAdd,
+  IoMdCloseCircle,
+  IoMdPrint,
+  IoMdRemove,
+} from "react-icons/io";
+import "./CartDisplay.css";
+import IsEmpty from "./IsEmpty";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { TypographyH1 } from "./ui/typographyH1";
+import { DownloadInvoice } from "./DownloadInvoice";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import StripeCheckout from "react-stripe-checkout";
 
 export function TextareaWithButton() {
   return (
@@ -66,28 +32,32 @@ export function TextareaWithButton() {
       <Textarea placeholder="Feel free and type your notes here." />
       <Button>Send notes</Button>
     </div>
-  )
+  );
 }
 
 function CartDisplay() {
+  const onToken = (token) => {
+    console.log(token);
+  };
   const {
     items,
     updateItemQuantity,
     removeItem,
     cartTotal,
     isEmpty,
-    totalItems
+    totalItems,
   } = useCart();
+
   if (isEmpty) {
-    return (
-      <IsEmpty />
-    );
+    return <IsEmpty />;
   }
 
   return (
     <div>
       <div>
-        <div className='center'><TypographyH1 title={"Cart Full Content"} /></div>
+        <div className="center">
+          <TypographyH1 title={"Cart Full Content"} />
+        </div>
 
         <ul className="card-list2">
           {items.map((item) => (
@@ -100,35 +70,76 @@ function CartDisplay() {
                   <p>Quantité: {item.quantity}</p>
                 </div>
               </div>
-              <div className='center'>
-                <Dialog>
-                  <DialogTrigger>
-                    <div className='notes'>
-                      <p className="add-notes-text">Add Notes</p> <IoMdAdd className="add-notes-icon" />
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent>
-                    <DialogTitle>Add an order note</DialogTitle>
-                    <DialogDescription>You may be charged for extras.</DialogDescription>
-                    <TextareaWithButton />
-                  </DialogContent>
-                </Dialog>
-              </div>
+
               <div className="buttond-container2">
-                <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)}><IoIosRemoveCircle /></button>
-                <button onClick={() => updateItemQuantity(item.id, item.quantity + 1)}><IoIosAddCircle /></button>
-                <button onClick={() => removeItem(item.id)}><IoMdCloseCircle /></button>
+                <button
+                  onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                >
+                  <IoIosRemoveCircle />
+                </button>
+                <button
+                  onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                >
+                  <IoIosAddCircle />
+                </button>
+                <button onClick={() => removeItem(item.id)}>
+                  <IoMdCloseCircle />
+                </button>
               </div>
             </li>
           ))}
         </ul>
       </div>
-
-      <div className='title-container'>
+      <div className="center">
+        <Dialog>
+          <DialogTrigger>
+            <div className="notes">
+              <p className="add-notes-text">Add Notes</p>{" "}
+              <IoMdAdd className="add-notes-icon" />
+            </div>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogTitle>Add an order note</DialogTitle>
+            <DialogDescription>
+              You may be charged for extras.
+            </DialogDescription>
+            <TextareaWithButton />
+          </DialogContent>
+        </Dialog>
+      </div>
+      <div className="title-container">
         <h2 className="title-text">Total Prices:{cartTotal} DA</h2>
         <h2 className="title-text">Total Items:{totalItems}</h2>
       </div>
-      <AnotherExample items={items} cartTotal={cartTotal} totalItems={totalItems} />
+      <PDFDownloadLink
+        document={
+          <DownloadInvoice
+            items={items}
+            cartTotal={cartTotal}
+            totalItems={totalItems}
+          />
+        }
+        fileName="facture"
+      >
+        {({ loading }) =>
+          loading ? "Téléchargement en cours..." : <Button>Download Invoice<IoIosDownload size={30} /></Button>
+        }
+      </PDFDownloadLink>
+      <StripeCheckout
+        token={onToken}
+        name="RESTO"
+        shippingAddress="true"
+        billingAddress="true"
+        zipCode="true"
+        alipay="true"
+        bitcoin="true"
+        allowRememberMe="true"
+        reconfigureOnUpdate="true"
+        triggerEvent="onClick"
+        amount={cartTotal}
+        stripeKey="pk_test_51P52xrEocppImaqvs17OLsdkQOuWIYJe08DxkhLGySA3uuXvAp7DPqJ1cJdWKjJNbuSuEuyoBXry4Z1B1w0RD46u00tVeTCCFC"
+      />
+      <Button>Confirm Order</Button>
     </div>
   );
 }

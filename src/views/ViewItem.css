@@ -1,25 +1,2 @@
-/* Styles pour la structure de notes */
-.notes {
-    display: flex;
-    align-items: center;
-    background-color: rgba(211, 223, 223, 0.589);
-    border-radius: 20px;
-    padding: auto;
-  }
-  
-  
-  .add-notes-text {
-    margin-right: 8px;
-    align-self: center;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  
-  .add-notes-icon {
-    margin-top: 10px;
-    font-size: 24px; 
-    color: #007bff; 
-    cursor: pointer; 
-  }
+
     

@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import { CarouselDemo } from '@/components/ui/carouselDemo'
-import { TypographyH1 } from '@/components/ui/typographyH1'
-import { TypographyP } from '@/components/ui/typographyP'
-import './promo.css';
+} from "@/components/ui/carousel";
+import { CarouselDemo } from "@/components/ui/carouselDemo";
+import { TypographyH1 } from "@/components/ui/typographyH1";
+import { TypographyP } from "@/components/ui/typographyP";
+import "./promo.css";
 import {
   Table,
   TableBody,
@@ -18,17 +18,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
 const Promo = () => {
   return (
-    
     <div>
-      <h2 className='wah'>We are here!</h2>
-      <CarouselDemo/> 
-      <h2 className='wah'>Table of ours Promotions:</h2>
-      
-            <Table className='table' style={{ width: '50%' }}>
+      <h2 className="wah">We are here!</h2>
+      <CarouselDemo />
+      <h2 className="wah">Table of ours Promotions:</h2>
+
+      <Table className="table" style={{ width: "50%" }}>
         <TableCaption>A list of OURS PROMOTIONS.</TableCaption>
         <TableHeader>
           <TableRow>
@@ -59,11 +58,10 @@ const Promo = () => {
           </TableRow>
         </TableBody>
       </Table>
-      <h2 className='wah'>Why Promotions</h2>
+      <h2 className="wah">Why Promotions</h2>
       <TypographyP />
-
     </div>
-  )
-}
+  );
+};
 
-export default Promo
+export default Promo;

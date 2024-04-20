@@ -1,8 +1,10 @@
 import React from 'react';
 import './headlineCards.css';
+import SearchResults from './SearchResults';
 
 const HeadlineCards = () => {
   return (
+    
     <div className='max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6'>
       {/* Card */}
       <div className='rounded-xl relative'>

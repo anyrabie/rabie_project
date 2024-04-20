@@ -13,6 +13,7 @@ import { ViewItem } from './views/ViewItem'
 
 function App() {
   return (
+    
     <CartProvider>
     <div className='3abalk'>
       {/* Navbar affichée sur toutes les routes */}
@@ -35,6 +36,7 @@ function App() {
         {/* Route pour la page Not Found */}
         <Route path="*" element={<NotFound />} />
         <Route path="/viewAll" element={<ViewItem />} /> {/* Placez cette ligne à la fin */}
+        
       </Routes>
     </div>
     </CartProvider>
