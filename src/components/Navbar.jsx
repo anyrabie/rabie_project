@@ -23,6 +23,7 @@ import {
 import { Input } from "./ui/input";
 import { Cart } from "./Cart";
 
+
 export function InputWithButton() {
   return (
     <div className="flex w-full max-w-sm items-center space-x-2">

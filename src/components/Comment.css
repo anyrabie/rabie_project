@@ -1,0 +1,42 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .text-red-500 {
+    color: #e53e3e;
+  }
+  
+  .comment-item {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .comment-options {
+    margin-top: 0.5rem;
+  }
+  
+  .comment-options button {
+    background-color: #e53e3e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  }
+  
+  .comment-options button:hover {
+    background-color: #c53030;
+  }
+  

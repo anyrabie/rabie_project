@@ -4,28 +4,27 @@ import './food.css'
 import { Button } from './ui/button.jsx';
 import { Textarea } from "@/components/ui/textarea"
 import CartSh from './Cart';
-
-export function TextareaWithButton() {
-  return (
-    <div className="grid w-full gap-2">
-      <Textarea placeholder="Type your message here." />
-      <Button>Send message</Button>
-    </div>
-  )
-}
+import { Comments } from './Comments.jsx';
 
 const Food = () => {
-
   const [foods, setFoods] = useState(data);
+  const [favorites, setFavorites] = useState([]); 
+
   const toggleFavorite = (id) => {
     setFoods(foods.map(item => {
       if (item.id === id) {
-        return { ...item, isFavorite: !item.isFavorite };
+        const updatedItem = { ...item, isFavorite: !item.isFavorite };
+        if (updatedItem.isFavorite) {
+          setFavorites([...favorites, updatedItem]);
+        } else {
+          setFavorites(favorites.filter(fav => fav.id !== id));
+        }
+        return updatedItem;
       }
       return item;
     }));
   };
- 
+
   const filterType = (category) => {
     setFoods(
       data.filter((item) => {
@@ -34,14 +33,17 @@ const Food = () => {
     );
   };
 
-  //   Filter by price
+  // Filter by price
   const filterPrice = (price) => {
     setFoods(
       data.filter((item) => {
         return item.price === price;
       })
     );
-    
+  };
+
+  const filterFavorites = () => {
+    setFoods(favorites);
   };
 
   return (
@@ -52,7 +54,7 @@ const Food = () => {
 
       {/* Filter Row */}
       <div className='flex flex-col lg:flex-row justify-between'>
-        {/* Fliter Type */}
+        {/* Filter Type */}
         <div>
           <p className='font-bold text-gray-700'>Filter Type</p>
           <div className='flex justfiy-between flex-wrap'>
@@ -120,9 +122,20 @@ const Food = () => {
           </div>
         </div>
       </div>
+
+      {/* Button to show favorites */}
+      <div>
+        <button onClick={filterFavorites} className='costum-button'>
+          Show Favorites
+        </button>
+      </div>
+
+      {/* CartSh component */}
       <CartSh foods={foods} toggleFavorite={toggleFavorite} />
+
+      {/* Leave a comment section */}
       <h2 className='lc'> Leave a comment:</h2>
-      <TextareaWithButton />
+      <Comments/>
     </div>
   );
 };

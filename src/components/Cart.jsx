@@ -33,22 +33,32 @@ import { toast } from "sonner";
 import { TypographyH2 } from "@/lib/jelp.jsx";
 
 export function SelectDemo() {
+  const initialSelectedValue = localStorage.getItem('selectedService') || '';
+  const [selectedValue, setSelectedValue] = useState(initialSelectedValue);
+
+  const handleSelectChange = (e) => {
+    const value = e.target.value;
+    setSelectedValue(value);
+    localStorage.setItem('selectedService', value);
+  };
+
   return (
     <Select>
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select type" />
+        <SelectValue placeholder="Select type" value={selectedValue} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Type Of Service</SelectLabel>
-          <SelectItem value="On table">On Table</SelectItem>
-          <SelectItem value="delivery">Delivery</SelectItem>
-          <SelectItem value="Pikup">Pickup without table</SelectItem>
+          <SelectItem value="On table" onChange={handleSelectChange}>On Table</SelectItem>
+          <SelectItem value="delivery" onChange={handleSelectChange}>Delivery</SelectItem>
+          <SelectItem value="Pikup" onChange={handleSelectChange}>Pickup without table</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>
   )
 }
+
 
 export function SonnerDemo({ addItem, item }) {
   const handleShowToast = () => {
