@@ -28,7 +28,7 @@ export function DialogDemoConfirmOrder({ notes, onButtonClick }) {
   const [showNotes, setShowNotes] = useState(false);
 
   useEffect(() => {
-    setShowNotes(!!notes); // Vérifie si des notes sont disponibles
+    setShowNotes(!!notes);
   }, [notes]);
 
   return (
@@ -63,7 +63,7 @@ export function TextareaWithButton({ onSendNotes }) {
 
   const handleSendNotes = () => {
     onSendNotes(notes);
-    setNotes(""); // Réinitialiser les notes après l'envoi
+    setNotes(""); 
   };
 
   return (
